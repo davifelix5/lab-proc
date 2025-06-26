@@ -8,7 +8,6 @@
 .set LED, 47
 
 .section .init
-.text
 start:
   ldr pc, _reset
   ldr pc, _undef
@@ -27,7 +26,7 @@ start:
   _irq:      .word   irq
   _fiq:      .word   irq
 
-
+.text
 reset:
   /*
    * RITUAL OBRIGATÓRIO -- FAVOR NÃO TENTAR ENTENDER

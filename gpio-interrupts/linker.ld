@@ -2,7 +2,10 @@
 SECTIONS {
    /* Endereço do Linux na RAM do RPi */
    . = 0x8000;
-   load_addr = .;
+   .init : {
+      load_addr = .;
+      *(.init)
+   }
    .text : { *(.text) }
    . = ALIGN(4);
    .data : { *(.data) }
