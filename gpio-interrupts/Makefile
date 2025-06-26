@@ -1,5 +1,5 @@
 
-FONTES = interrupt.s
+FONTES = interrupt.s boot.s
 
 # Interface serial a utilizar
 TTY = /dev/ttyUSB0
