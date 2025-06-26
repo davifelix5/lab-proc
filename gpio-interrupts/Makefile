@@ -102,3 +102,13 @@ gdb: ${EXEC}
 	                   -ex "load"; \
 	fi
 
+qemu:
+	@if lsof -Pi :1234 >/dev/null ; then\
+			echo "qemu já está executando"; \
+	else qemu-system-arm -s -M raspi2b & \
+	fi
+
+gdb-qemu: ${EXEC}
+	gdb-multiarch -ex "set architecture arm" \
+		-ex "target extended-remote :1234" \
+		-ex "load" ${EXEC}
