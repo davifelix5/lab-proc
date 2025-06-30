@@ -96,12 +96,12 @@ swi:
 irq:
   ldr r0, =PENDING_IRQ_REGISTER
   /* Se não for uma interrupção do grupo 2, para o tratamento */  
-  ldr r1, [r0]      @ Acessando o registrador PENDING_1
+  ldr r1, [r0]      @ Acessando o registrador PENDING_BASIC
   tst r1, #1<<9     @ Verificando se o bit 9 está setado
   beq end_irq       @ Se não está setado, acaba o tratamento
 
   /* Se não for uma interrupção de GPIO, para o tratamento */
-  ldr r1, [r0, #16]  @ Acessando o registrador PENDING_2
+  ldr r1, [r0, #8]  @ Acessando o registrador PENDING_2
   tst r1, #1<<20    @ Verifica se o bit 20 está setado
   beq end_irq        @ Se Não está setado, acaba o tramento
 
