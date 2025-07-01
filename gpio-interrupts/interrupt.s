@@ -23,5 +23,5 @@ main:
   ldr r0, =ENABLE_IRQ_REGISTER
   ldr r1, [r0, #4]        @ Lê o valor atual do registrador IRQ_enable2
   orr r1, r1, #1<<20      @ Sera o bit 20 do registrador IRQ_enable2
-  str r1, [r0]
+  str r1, [r0, #4]
   b .

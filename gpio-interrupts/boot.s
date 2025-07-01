@@ -117,6 +117,8 @@ irq:
   bl gpio_toggle
 
   /* Reconhece o tratamento de interrupção */
+  ldr r2, =GPEDS_ADDR
+  ldr r1, [r2]
   str r1, [r2]
 end_irq:
   movs pc, lr
